@@ -8,19 +8,25 @@ public class Main {
         int levelCompleted = 5;
         int bonus = 100;
 
-        calculateScore(true, 800, levelCompleted, bonus);
+        int highScore = calculateScore(gameOver, score, levelCompleted, bonus);
+        System.out.println("High Score is " + highScore);
 
-        calculateScore(true, 10000, 8, 200);
+        score = 10000;
+        levelCompleted = 8;
+        bonus = 200;
+        System.out.println("The next hight score is " +
+                calculateScore(gameOver, score, levelCompleted, bonus));
 
     }
 
-    public static void calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+    public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
         int finalScore = score;
 
         if (gameOver) {
             finalScore += (levelCompleted * bonus);
             finalScore += 1000;
-            System.out.println("Final Score is " + finalScore);
         }
+
+        return finalScore;
     }
 }
